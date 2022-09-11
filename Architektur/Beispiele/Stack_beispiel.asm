@@ -3,7 +3,7 @@
 ;   int a, b;
 ;   a = 33;
 ;   b = 22;
-;   return STACK_FUNCTION_PARAMETER_ADD(a, b); 
+;   return stack_function_parameter_add(a, b); 
 ;}
 ;
 
@@ -11,20 +11,17 @@
 %DEFINE EXIT_SUCCESS    0
 
 ; FUNKTIONS HEADER
-GLOBAL _START
+GLOBAL _start
+_start:
 
-
-
-_START:
-
-    CALL MAIN
+    CALL    main
 
     MOV     EBX, EAX        ; Return Code
     MOV     EAX, SYS_EXIT   ; Kernel Funktion   
     INT     0x80            ; Linux Kernel Aufruf
 
 
-MAIN:
+main:
 
     PUSH    EBP             
     MOV     EBP, ESP        ; Neuer stack frame
@@ -36,16 +33,18 @@ MAIN:
 
     ; Parameter übergabe (CDECL-Konvention)
     ; Equivalenter C-code:
-    ; STACK_FUNCTION_PARAMETER_ADD(a, b);
+    ; stack_function_parameter_add(a, b);
     
     PUSH    DWORD [EBP - 4] 
     PUSH    DWORD [EBP - 8] 
-    CALL    STACK_FUNCTION_PARAMETER_ADD
+    CALL    stack_function_parameter_add
 
     POP     EBP
     RET
-
-STACK_FUNCTION_PARAMETER_ADD:
+ 
+; funktions header
+GLOBAL stack_function_parameter_add
+stack_function_parameter_add:
     PUSH    EBP
     MOV     ESP, EBP
 
