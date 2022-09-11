@@ -15,7 +15,7 @@ ___
 - Linux beispiel anhand des SBRK-systemcall-wrappers: Malloc
 ___
 ## Wie ist der Speicher aufgebaut? (addressbus, datenbus, kontrollbus)
-## Memory Mapped I/O (kleines Beispiel mit einem Programm, dass am Bootsektor liegt)
+## Memory Mapped I/O (kleines Beispiel mit einem Programm, das am Bootsektor liegt)
 ___
 ## kleine einführung zu x86
 - Register (%eax, %ebx, %ecx, %edx, %esi, %esp, %ebp, %esi, %xmm0, %zmm0 usw.)
