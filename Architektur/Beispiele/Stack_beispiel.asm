@@ -48,8 +48,8 @@ stack_function_parameter_add:
     PUSH    EBP
     MOV     ESP, EBP
 
-    MOV     EDI, [EBP - 4]
-    MOV     ESI, [EBP - 8]
+    MOV     EDI, DWORD [EBP - 4]
+    MOV     ESI, DWORD [EBP - 8]
 
     ADD     EDI, ESI
     MOV     EAX, EDI
