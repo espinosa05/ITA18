@@ -34,7 +34,7 @@ main:
 
     push    eax
     push    ebx
-    CALL    stack_function_parameter_add
+    call    stack_function_parameter_add
    
     POP     EBP
     RET
